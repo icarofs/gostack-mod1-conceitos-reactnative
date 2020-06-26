@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { api } from "./services/api";
+import api from "./services/api";
 
 import {
   SafeAreaView,
@@ -27,13 +27,13 @@ export default function App() {
 
     const repositoriesUpdated = repositories.map((repository) => {
       if (repository.id === id) {
-        likedRepository;
+        return likedRepository;
       } else {
         return repository;
       }
-
-      setRepositories(repositoriesUpdated);
     });
+
+    setRepositories(repositoriesUpdated);
   }
 
   return (
@@ -48,11 +48,11 @@ export default function App() {
               <Text style={styles.repository}>{repository.title}</Text>
 
               <View style={styles.techsContainer}>
-                {repository.techs.map((tech) => {
+                {repository.techs.map((tech) => (
                   <Text key={tech} style={styles.tech}>
                     {tech}
-                  </Text>;
-                })}
+                  </Text>
+                ))}
               </View>
 
               <View style={styles.likesContainer}>
